@@ -1,0 +1,9 @@
+# HomeController
+GET        /                    controllers.HomeController.index()
+
+# UserController
+GET        /users               controllers.UserController.list()
+GET        /users/init          controllers.UserController.init()
+
+# Asserts
+GET        /assets/*file        controllers.Assets.at(path= "/public", file)

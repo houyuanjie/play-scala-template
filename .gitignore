@@ -1,0 +1,15 @@
+.bloop
+.bsp
+.idea
+.vscode
+.metals
+
+sbt-launch.jar
+
+logs
+target
+
+project/**/.bloop
+project/**/project
+project/**/target
+project/**/metals.sbt
