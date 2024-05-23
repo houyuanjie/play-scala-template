@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration>
 <configuration>
-    <import class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"/>
-    <import class="ch.qos.logback.classic.AsyncAppender"/>
-    <import class="ch.qos.logback.core.FileAppender"/>
-    <import class="ch.qos.logback.core.ConsoleAppender"/>
+    <import class="ch.qos.logback.classic.encoder.PatternLayoutEncoder" />
+    <import class="ch.qos.logback.classic.AsyncAppender" />
+    <import class="ch.qos.logback.core.FileAppender" />
+    <import class="ch.qos.logback.core.ConsoleAppender" />
 
     <appender name="FILE" class="FileAppender">
         <file>${application.home:-.}/logs/application.log</file>
@@ -27,19 +27,19 @@
     </appender>
 
     <appender name="ASYNCFILE" class="AsyncAppender">
-        <appender-ref ref="FILE"/>
+        <appender-ref ref="FILE" />
     </appender>
 
     <appender name="ASYNCSTDOUT" class="AsyncAppender">
-        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDOUT" />
     </appender>
 
-    <logger name="play" level="INFO"/>
-    <logger name="application" level="DEBUG"/>
+    <logger name="play" level="INFO" />
+    <logger name="application" level="DEBUG" />
 
     <root level="WARN">
-        <appender-ref ref="ASYNCFILE"/>
-        <appender-ref ref="ASYNCSTDOUT"/>
+        <appender-ref ref="ASYNCFILE" />
+        <appender-ref ref="ASYNCSTDOUT" />
     </root>
 
 </configuration>

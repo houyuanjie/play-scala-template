@@ -1,15 +1,17 @@
 package controllers
 
 import daos.UserDao
-import jakarta.inject.*
 import models.User
-import play.api.libs.json.*
-import play.api.mvc.*
 import syntax.JsonSyntax.toJson
 import syntax.OptionSyntax.autoToOption
 
+import play.api.libs.json.*
+import play.api.mvc.*
+
+import jakarta.inject.*
+
 @Singleton
-class UserController @Inject() (cc: ControllerComponents, userRepo: UserDao) extends AbstractController(cc) {
+class UserController @Inject() (cc: ControllerComponents, userRepo: UserDao) extends AbstractController(cc):
 
   def list(): Action[AnyContent] = Action {
     val users = userRepo.findAll()
@@ -23,10 +25,6 @@ class UserController @Inject() (cc: ControllerComponents, userRepo: UserDao) ext
       User.Create("Charlie", "Charlie's info"),
       User.Create("David", None)
     )
-    for (user <- initUsers) {
-      userRepo.insert(user)
-    }
+    for user <- initUsers do userRepo.insert(user)
     Ok("Initialized")
   }
-
-}

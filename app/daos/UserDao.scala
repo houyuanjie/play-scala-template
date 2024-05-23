@@ -2,14 +2,15 @@ package daos
 
 import databases.DefaultDB
 import io.getquill.*
-import jakarta.inject.*
 import models.User
 
+import jakarta.inject.*
+
 @Singleton
-class UserDao @Inject() (ctx: DefaultDB) {
+class UserDao @Inject() (ctx: DefaultDB):
   import ctx.*
 
-  private inline def users = quote(querySchema[User]("users"))
+  private inline def users      = quote(querySchema[User]("users"))
   private inline def createUser = quote(querySchema[User.Create]("users"))
 
   def findAll(): List[User] = run {
@@ -32,5 +33,3 @@ class UserDao @Inject() (ctx: DefaultDB) {
       .filter(_.id == lift(user.id))
       .updateValue(lift(user))
   } > 0
-
-}

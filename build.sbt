@@ -2,10 +2,9 @@ import Dependencies.*
 import Versions.*
 
 scalaVersion := scala3
-
-name := "play-scala-demo"
+name         := "play-scala-template"
 organization := "org.example"
-version := "0.0.1"
+version      := "0.0.1"
 
 enablePlugins(PlayScala)
 
